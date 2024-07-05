@@ -21,13 +21,15 @@ function parseAndDisplayData(rawData) {
             const imtopicdiv = document.createElement('div');
             imtopicdiv.className = 'imtopic';
             imtopicdiv.innerHTML = `
-                <img src="path/to/avatar.png" alt="${imtopic.CharacterName || 'Unknown'}" width="50" height="50">
+                <div class="imavatarprovider">
+                    <img src="path/to/avatar.png" alt="${imtopic.CharacterName || 'Unknown'}" width="50" height="50">
+                    <p class="imavatarname">${imtopic.CharacterName || 'Unknown'}</p>
+                </div>
                 <div>
-                    <h2>${imtopic.CharacterName || 'Unknown'}</h2>
-                    <p><strong>ID:</strong> ${imtopic.Id || 'N/A'}</p>
-                    <p><strong>Title:</strong> ${imtopic.Titles && imtopic.Titles[0] || 'N/A'}</p>
-                    <p><strong>Like Count:</strong> ${imtopic.LikeCount || 0}</p>
-                    <p><strong>Replies:</strong> ${imtopic.Replies ? imtopic.Replies.length : 0}</p>
+                    <!--p><strong>ID:</strong> ${imtopic.Id || 'N/A'}</p-->
+                    <p class="imtopictitle">${imtopic.Titles && imtopic.Titles[0] || 'N/A'}</p>
+                    <p class="imtopicdetail">${imtopic.LikeCount || 0} likes</p>
+                    <p class="imtopicdetail">${imtopic.Replies ? imtopic.Replies.length : 0} comments</p>
                 </div>
             `;
             container.appendChild(imtopicdiv);

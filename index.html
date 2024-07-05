@@ -12,14 +12,16 @@
             <div class="contentlist" id="iMtopiclist">
                 <!-- Data items will be inserted here -->
                     <div class="imtopic">
-                        <img src="path/to/avatar.png" alt="${item.CharacterName || 'Unknown'}" width="50" height="50">
-                    <div>
-                        <h2>${item.CharacterName || 'Unknown'}</h2>
-                        <!--p><strong>ID:</strong> ${item.Id || 'N/A'}</p-->
-                        <p><strong>Title:</strong> ${item.Titles && item.Titles[0] || 'N/A'}</p>
-                        <p><strong>Like Count:</strong> ${item.LikeCount || 0}</p>
-                        <p><strong>Replies:</strong> ${item.Replies ? item.Replies.length : 0}</p>
-                    </div>
+                        <div class="imavatarprovider">
+                            <img src="path/to/avatar.png" alt="${imtopic.CharacterName || 'Unknown'}" width="50" height="50">
+                            <p class="imavatarname">${imtopic.CharacterName || 'Unknown'}</p>
+                        </div>
+                        <div>
+                            <!--p><strong>ID:</strong> ${imtopic.Id || 'N/A'}</p-->
+                            <p class="imtopictitle">${imtopic.Titles && imtopic.Titles[0] || 'N/A'}</p>
+                            <p class="imtopicdetail">${imtopic.LikeCount || 0} likes</p>
+                            <p class="imtopicdetail">${imtopic.Replies ? imtopic.Replies.length : 0} comments</p>
+                        </div>
                  </div>
             </div>
         </div>
