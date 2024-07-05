@@ -27,7 +27,7 @@ function parseAndDisplayData(rawData) {
                     </div>
                     <div class="imtopicmain">
                         <!--p><strong>ID:</strong> ${imtopic.Id || 'N/A'}</p-->
-                        <p class="imtopictitle">${imtopic.Titles && imtopic.Titles[0] || 'N/A'}</p>
+                        <p class="imtopictitle">${imtopic.Titles && imtopic.Titles[5] || 'N/A'}</p>
                         <p class="imtopicdetail">${imtopic.LikeCount || 0} likes</p>
                         <p class="imtopicdetail">${imtopic.Replies ? imtopic.Replies.length : 0} comments</p>
                     </div>
