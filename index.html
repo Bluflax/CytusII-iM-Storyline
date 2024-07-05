@@ -3,22 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PAFF Data Parser</title>
+    <title>Cytus2 Storyline Preview</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <main>
-        <div id="content">
-            <div id="sidebar">
-                <!-- Sidebar content can go here -->
-            </div>
-            <div id="data-container">
+        <div class="contentprovider" id="iMtopicprovider">
+            <div class="contentlist" id="iMtopiclist">
                 <!-- Data items will be inserted here -->
-                    <div class="item">
+                    <div class="iMtopic">
                         <img src="path/to/avatar.png" alt="${item.CharacterName || 'Unknown'}" width="50" height="50">
                     <div>
                         <h2>${item.CharacterName || 'Unknown'}</h2>
-                        <p><strong>ID:</strong> ${item.Id || 'N/A'}</p>
+                        <!--p><strong>ID:</strong> ${item.Id || 'N/A'}</p-->
                         <p><strong>Title:</strong> ${item.Titles && item.Titles[0] || 'N/A'}</p>
                         <p><strong>Like Count:</strong> ${item.LikeCount || 0}</p>
                         <p><strong>Replies:</strong> ${item.Replies ? item.Replies.length : 0}</p>

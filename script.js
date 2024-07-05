@@ -15,22 +15,22 @@ function parseAndDisplayData(rawData) {
         if (!fixedData.endsWith(']')) fixedData = fixedData + ']';
 
         const data = JSON.parse(fixedData);
-        const container = document.getElementById('data-container');
+        const imtopiclist = document.getElementById('iMtopiclist');
 
-        data.forEach(item => {
-            const itemDiv = document.createElement('div');
-            itemDiv.className = 'item';
-            itemDiv.innerHTML = `
-                <img src="path/to/avatar.png" alt="${item.CharacterName || 'Unknown'}" width="50" height="50">
+        data.forEach(imtopic => {
+            const imtopicdiv = document.createElement('div');
+            imtopicdiv.className = 'iMtopic';
+            imtopicdiv.innerHTML = `
+                <img src="path/to/avatar.png" alt="${imtopic.CharacterName || 'Unknown'}" width="50" height="50">
                 <div>
-                    <h2>${item.CharacterName || 'Unknown'}</h2>
-                    <p><strong>ID:</strong> ${item.Id || 'N/A'}</p>
-                    <p><strong>Title:</strong> ${item.Titles && item.Titles[0] || 'N/A'}</p>
-                    <p><strong>Like Count:</strong> ${item.LikeCount || 0}</p>
-                    <p><strong>Replies:</strong> ${item.Replies ? item.Replies.length : 0}</p>
+                    <h2>${imtopic.CharacterName || 'Unknown'}</h2>
+                    <!--p><strong>ID:</strong> ${imtopic.Id || 'N/A'}</p-->
+                    <p><strong>Title:</strong> ${imtopic.Titles && item.Titles[0] || 'N/A'}</p>
+                    <p><strong>Like Count:</strong> ${imtopic.LikeCount || 0}</p>
+                    <p><strong>Replies:</strong> ${imtopic.Replies ? imtopic.Replies.length : 0}</p>
                 </div>
             `;
-            container.appendChild(itemDiv);
+            imtopiclist.appendChild(itemDiv);
         });
 
     } catch (error) {
