@@ -21,7 +21,6 @@ function parseAndDisplayData(rawData) {
             const imtopicdiv = document.createElement('div');
             imtopicdiv.className = 'imtopic';
             imtopicdiv.innerHTML = `
-                <div class="imtopic">
                     <div class="imavatarprovider">
                         <img src="assets\default_01.png" alt="${imtopic.CharacterName || 'Unknown'}" width="50" height="50">
                         <p class="imavatarname">${imtopic.CharacterName || 'Unknown'}</p>
@@ -32,7 +31,6 @@ function parseAndDisplayData(rawData) {
                         <p class="imtopicdetail">${imtopic.LikeCount || 0} likes</p>
                         <p class="imtopicdetail">${imtopic.Replies ? imtopic.Replies.length : 0} comments</p>
                     </div>
-                </div>
             `;
             container.appendChild(imtopicdiv);
         });
