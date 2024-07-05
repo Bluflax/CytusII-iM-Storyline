@@ -21,22 +21,15 @@ main {
 }
 
 #iMtopicprovider {
-    display: flex;
     width: 100%;
     max-width: 1200px;
 }
 
-.imavatarprovider {
-    width: 60px;
-    text-align: center;
-    margin-right: 1rem;
-}
-
 #iMtopiclist {
-    width: 80%;
-    background-color: #1c1c1c;
-    padding: 1rem;
-    border-radius: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 1rem;
 }
 
 .imtopic {
@@ -47,15 +40,35 @@ main {
     margin-bottom: 1rem;
     display: flex;
     align-items: flex-start;
+    width: calc(50% - 0.5rem);
+}
+
+.imavatarprovider {
+    width: 60px;
+    text-align: center;
+    margin-right: 1rem;
 }
 
 .imtopicmain {
     flex-grow: 1;
+    background: linear-gradient(115deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 100%);
+    padding: 1rem;
+    border-radius: 5px;
 }
 
 .imtopic img {
     border-radius: 50%;
     margin-bottom: 0.5rem;
+}
+
+.imtopictitle {
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.imtopicdetail {
+    font-size: 0.9em;
+    color: #cccccc;
 }
 
 footer {
@@ -66,4 +79,10 @@ footer {
     position: fixed;
     bottom: 0;
     width: 100%;
+}
+
+@media (max-width: 768px) {
+    .imtopic {
+        width: 100%;
+    }
 }
