@@ -15,22 +15,22 @@ function parseAndDisplayData(rawData) {
         if (!fixedData.endsWith(']')) fixedData = fixedData + ']';
 
         const data = JSON.parse(fixedData);
-        const imtopiclist = document.getElementById('iMtopiclist');
+        const container = document.getElementById('iMtopiclist');
 
         data.forEach(imtopic => {
             const imtopicdiv = document.createElement('div');
-            imtopicdiv.className = 'iMtopic';
+            imtopicdiv.className = 'imtopic';
             imtopicdiv.innerHTML = `
                 <img src="path/to/avatar.png" alt="${imtopic.CharacterName || 'Unknown'}" width="50" height="50">
                 <div>
                     <h2>${imtopic.CharacterName || 'Unknown'}</h2>
-                    <!--p><strong>ID:</strong> ${imtopic.Id || 'N/A'}</p-->
-                    <p><strong>Title:</strong> ${imtopic.Titles && item.Titles[0] || 'N/A'}</p>
+                    <p><strong>ID:</strong> ${imtopic.Id || 'N/A'}</p>
+                    <p><strong>Title:</strong> ${imtopic.Titles && imtopic.Titles[0] || 'N/A'}</p>
                     <p><strong>Like Count:</strong> ${imtopic.LikeCount || 0}</p>
                     <p><strong>Replies:</strong> ${imtopic.Replies ? imtopic.Replies.length : 0}</p>
                 </div>
             `;
-            imtopiclist.appendChild(imtopicdiv);
+            container.appendChild(imtopicdiv);
         });
 
     } catch (error) {
