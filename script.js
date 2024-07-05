@@ -30,7 +30,7 @@ function parseAndDisplayData(rawData) {
                     <p><strong>Replies:</strong> ${imtopic.Replies ? imtopic.Replies.length : 0}</p>
                 </div>
             `;
-            imtopiclist.appendChild(itemDiv);
+            imtopiclist.appendChild(imtopicdiv);
         });
 
     } catch (error) {
