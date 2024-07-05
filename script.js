@@ -1,4 +1,3 @@
-// 使用 Fetch API 从文件中获取数据
 function fetchDataFromFile(filename) {
     return fetch(filename)
         .then(response => {
@@ -11,29 +10,34 @@ function fetchDataFromFile(filename) {
 
 function parseAndDisplayData(rawData) {
     try {
-        const data = JSON.parse(rawData);
+        // 尝试修复可能的 JSON 格式问题
+        let fixedData = rawData.trim(); // 移除首尾空白
+        if (!fixedData.startsWith('[')) fixedData = '[' + fixedData;
+        if (!fixedData.endsWith(']')) fixedData = fixedData + ']';
+
+        const data = JSON.parse(fixedData);
         const container = document.getElementById('data-container');
 
         data.forEach(item => {
             const itemDiv = document.createElement('div');
             itemDiv.className = 'item';
             itemDiv.innerHTML = `
-                <h2>${item.CharacterName}</h2>
-                <p><strong>ID:</strong> ${item.Id}</p>
-                <p><strong>Title:</strong> ${item.Titles[0]}</p>
-                <p><strong>Like Count:</strong> ${item.LikeCount}</p>
-                <p><strong>Replies:</strong> ${item.Replies.length}</p>
+                <h2>${item.CharacterName || 'Unknown'}</h2>
+                <p><strong>ID:</strong> ${item.Id || 'N/A'}</p>
+                <p><strong>Title:</strong> ${item.Titles && item.Titles[0] || 'N/A'}</p>
+                <p><strong>Like Count:</strong> ${item.LikeCount || 0}</p>
+                <p><strong>Replies:</strong> ${item.Replies ? item.Replies.length : 0}</p>
             `;
             container.appendChild(itemDiv);
         });
 
     } catch (error) {
         console.error('Error parsing data:', error);
+        console.error('Raw data:', rawData);
         alert('There was an error parsing the data. Please check the console for details.');
     }
 }
 
-// 当页面加载完成后执行
 document.addEventListener('DOMContentLoaded', () => {
     fetchDataFromFile('im_topic_data.txt')
         .then(rawData => {
