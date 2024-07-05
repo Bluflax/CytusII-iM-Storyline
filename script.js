@@ -10,8 +10,7 @@ function fetchDataFromFile(filename) {
 
 function parseAndDisplayData(rawData) {
     try {
-        // 尝试修复可能的 JSON 格式问题
-        let fixedData = rawData.trim(); // 移除首尾空白
+        let fixedData = rawData.trim();
         if (!fixedData.startsWith('[')) fixedData = '[' + fixedData;
         if (!fixedData.endsWith(']')) fixedData = fixedData + ']';
 
@@ -22,11 +21,14 @@ function parseAndDisplayData(rawData) {
             const itemDiv = document.createElement('div');
             itemDiv.className = 'item';
             itemDiv.innerHTML = `
-                <h2>${item.CharacterName || 'Unknown'}</h2>
-                <p><strong>ID:</strong> ${item.Id || 'N/A'}</p>
-                <p><strong>Title:</strong> ${item.Titles && item.Titles[0] || 'N/A'}</p>
-                <p><strong>Like Count:</strong> ${item.LikeCount || 0}</p>
-                <p><strong>Replies:</strong> ${item.Replies ? item.Replies.length : 0}</p>
+                <img src="path/to/avatar.png" alt="${item.CharacterName || 'Unknown'}" width="50" height="50">
+                <div>
+                    <h2>${item.CharacterName || 'Unknown'}</h2>
+                    <p><strong>ID:</strong> ${item.Id || 'N/A'}</p>
+                    <p><strong>Title:</strong> ${item.Titles && item.Titles[0] || 'N/A'}</p>
+                    <p><strong>Like Count:</strong> ${item.LikeCount || 0}</p>
+                    <p><strong>Replies:</strong> ${item.Replies ? item.Replies.length : 0}</p>
+                </div>
             `;
             container.appendChild(itemDiv);
         });
