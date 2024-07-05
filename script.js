@@ -22,7 +22,7 @@ function parseAndDisplayData(rawData) {
             imtopicdiv.className = 'imtopic';
             imtopicdiv.innerHTML = `
                 <div class="imavatarprovider">
-                    <img src="path/to/avatar.png" alt="${imtopic.CharacterName || 'Unknown'}" width="50" height="50">
+                    <img src="assets\default_01.png" alt="${imtopic.CharacterName || 'Unknown'}" width="50" height="50">
                     <p class="imavatarname">${imtopic.CharacterName || 'Unknown'}</p>
                 </div>
                 <div>
