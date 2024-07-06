@@ -6,7 +6,7 @@ body, html {
     padding: 0;
     height: 100%;
     overflow: hidden;
-    font-family: 'EL', Courier, monospace;
+    font-family: 'EL', 'HMSC', Courier, monospace;
     font-size: 16px;
 }
 
@@ -40,11 +40,7 @@ body, html {
     flex-direction: row;
 }
 
-.imtopic-content {
-    display: flex;
-    padding: 15px;
-    flex-grow: 1;
-}
+
 
 .imavatarprovider {
     display: flex;
@@ -58,7 +54,7 @@ body, html {
 .imavatarname {
     font-size: 8px;
     height: fit-content;
-    transform: translateY(-1px);
+    transform: translateY(-2px);
 }
 
 .imavatarprovider img {
@@ -68,21 +64,28 @@ body, html {
 }
 
 .imtopicmain {
+    height: 75px;
     flex-grow: 1;
     background: linear-gradient(160deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.2) 100%);
     padding: 10px;
-    display: flex;
     border-top: 1.5px solid #83b0b8;
-    flex-direction: column;
-    justify-content: flex-start;
 }
 
 .imtopictitle {
+    font-size: 18px;
     width: fit-content;
     height: fit-content;
+    margin-top: 10px;
+    margin-bottom: 3px;
+    padding: 0;
 }
 
 .imtopicdetail {
+    font-size: 12px;
+    width: fit-content;
+    height: fit-content;
+    margin: 0;
+    padding: 0;
 }
 
 .imtopic-image {
@@ -125,4 +128,9 @@ body, html {
 @font-face {
     font-family: "EL";
     src: url("electrolize.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "HMSC";
+    src: url("HarmonyOS_Sans_SC_Regular.ttf") format("truetype");
 }
