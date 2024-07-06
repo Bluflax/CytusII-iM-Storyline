@@ -22,14 +22,14 @@ function parseAndDisplayData(rawData) {
             imtopicdiv.className = 'imtopic';
             imtopicdiv.innerHTML = `
                     <div class="imavatarprovider">
-                        <img src="assets/default_01.png" width="50" height="50">
+                        <img src="assets/default_01.png">
                         <p class="imavatarname">${imtopic.CharacterName || 'Unknown'}</p>
                     </div>
                     <div class="imtopicmain">
-                        <!--p><strong>ID:</strong> ${imtopic.Id || 'N/A'}</p-->
+                        <!--p><strong>ID:</strong> ${imtopic.Id || 'id'}</p-->
                         <p class="imtopictitle">${imtopic.Titles && imtopic.Titles[5] || 'N/A'}</p>
                         <p class="imtopicdetail">${imtopic.LikeCount || 0} likes</p>
-                        <p class="imtopicdetail">${imtopic.Replies ? imtopic.Replies.length : 0} comments</p>
+                        <!--p class="imtopicdetail">${imtopic.Replies ? imtopic.Replies.length : 0} comments</p-->
                     </div>
             `;
             container.appendChild(imtopicdiv);
@@ -38,7 +38,7 @@ function parseAndDisplayData(rawData) {
     } catch (error) {
         console.error('Error parsing data:', error);
         console.error('Raw data:', rawData);
-        alert('There was an error parsing the data. Please check the console for details.');
+        alert('无法解析内容。可能是页面正在维护，稍后再来试试看。');
     }
 }
 
@@ -49,6 +49,6 @@ document.addEventListener('DOMContentLoaded', () => {
         })
         .catch(error => {
             console.error('Error fetching data:', error);
-            alert('There was an error fetching the data. Please check the console for details.');
+            alert('无法获取内容。可能是页面正在维护，稍后再来试试看。');
         });
 });

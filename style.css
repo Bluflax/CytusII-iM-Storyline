@@ -7,70 +7,37 @@ body, html {
     height: 100%;
     overflow: hidden;
     font-family: 'EL', Courier, monospace;
+    font-size: 16px;
 }
 
-.header {
-    background-color: #111111;
-    padding: 10px 20px;
-    border-bottom: 1px solid #333333;
-}
 
-.header h1 {
-    margin: 0;
-    font-size: 24px;
-}
-
-.nav {
-    background-color: #111111;
-    padding: 10px 20px;
-    border-bottom: 1px solid #333333;
-}
-
-.nav-item {
-    display: inline-block;
-    margin-right: 20px;
-    color: #888888;
-    text-decoration: none;
-}
-
-.nav-item.active {
-    color: #ffffff;
-    border-bottom: 2px solid #3498db;
-}
 
 #iMtopicprovider {
     position: fixed;
     left: 20px;
     bottom: 20px;
-    width: 60%;
-    height: 60%;
-    background-color: rgba(17, 17, 17, 0.9);
+    width: 935px;
+    height: 500px;
     border: 1px solid #333333;
-    border-radius: 5px;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
 }
 
 #iMtopiclist {
     flex-grow: 1;
     overflow-y: auto;
-    padding: 20px;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     align-content: flex-start;
+    margin: 10px;
 }
 
 .imtopic {
-    width: calc(50% - 10px);
+    width: 450px;
+    height: 70px;
     margin-bottom: 20px;
-    background-color: #222222;
-    border: 1px solid #333333;
-    border-radius: 5px;
     overflow: hidden;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
 }
 
 .imtopic-content {
@@ -80,35 +47,42 @@ body, html {
 }
 
 .imavatarprovider {
-    width: 40px;
-    margin-right: 10px;
+    display: flex;
+    width: 75px;
+    text-align: center;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.imavatarname {
+    font-size: 8px;
+    height: fit-content;
+    transform: translateY(-1px);
 }
 
 .imavatarprovider img {
-    width: 40px;
-    height: 40px;
+    width: 55px;
+    height: 55px;
     border-radius: 50%;
 }
 
 .imtopicmain {
     flex-grow: 1;
-    background: linear-gradient(115deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 100%);
+    background: linear-gradient(160deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.2) 100%);
     padding: 10px;
-    border-radius: 5px;
     display: flex;
+    border-top: 1.5px solid #83b0b8;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: flex-start;
 }
 
 .imtopictitle {
-    font-size: 14px;
-    font-weight: bold;
-    margin-bottom: 5px;
+    width: fit-content;
+    height: fit-content;
 }
 
 .imtopicdetail {
-    font-size: 12px;
-    color: #888888;
 }
 
 .imtopic-image {
@@ -120,38 +94,31 @@ body, html {
 
 /* Scrollbar styling */
 #iMtopiclist::-webkit-scrollbar {
-    width: 6px;
+    width: 0px;
 }
 
 #iMtopiclist::-webkit-scrollbar-track {
-    background: #111111;
+    background: #00000000;
 }
 
 #iMtopiclist::-webkit-scrollbar-thumb {
-    background: #333333;
+    background: #00000000;
     border-radius: 3px;
 }
 
 #iMtopiclist::-webkit-scrollbar-thumb:hover {
-    background: #444444;
+    background: #00000000;
 }
 
 @media (max-width: 1024px) {
     #iMtopicprovider {
-        width: 80%;
-        left: 10%;
     }
 }
 
 @media (max-width: 768px) {
     #iMtopicprovider {
-        width: 90%;
-        left: 5%;
-        height: 70%;
     }
-    
     .imtopic {
-        width: 100%;
     }
 }
 
