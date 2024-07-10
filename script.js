@@ -40,12 +40,13 @@ function parseAndDisplayData(rawData) {
                     const index = Array.from(container.children).indexOf(entry.target);
                     entry.target.style.animationDelay = `${Math.floor(index / 2) * 45}ms`;
                     entry.target.classList.add('fade-in');
-                    observer.unobserve(entry.target); // 停止观察已经渲染的元素
+                } else {
+                    entry.target.classList.remove('fade-in');
                 }
             });
         }, { 
             rootMargin: '20px', // 提前 20px 触发
-            threshold: 0
+            threshold: 0.01 
         });
 
         // 观察所有 imtopic 元素
