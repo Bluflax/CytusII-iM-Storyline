@@ -31,11 +31,16 @@ function parseAndDisplayData(rawData) {
                     </div>
             `;
             container.appendChild(imtopicdiv);
+        });
 
-            // Apply fade-in animation with delay
-            setTimeout(() => {
-                imtopicdiv.classList.add('fade-in');
-            }, Math.floor(index / 2) * 60);
+        // Start animation after all resources are loaded
+        window.addEventListener('load', () => {
+            const imtopics = document.querySelectorAll('.imtopic');
+            imtopics.forEach((imtopic, index) => {
+                setTimeout(() => {
+                    imtopic.classList.add('fade-in');
+                }, Math.floor(index / 2) * 100); // 0.1s delay for each pair
+            });
         });
 
     } catch (error) {
@@ -44,6 +49,18 @@ function parseAndDisplayData(rawData) {
         alert('无法解析内容。可能是页面正在维护，稍后再来试试看。');
     }
 }
+
+// Use window load event instead of DOMContentLoaded
+window.addEventListener('load', () => {
+    fetchDataFromFile('im_topic_data.txt')
+        .then(rawData => {
+            parseAndDisplayData(rawData);
+        })
+        .catch(error => {
+            console.error('Error fetching data:', error);
+            alert('无法获取内容。可能是页面正在维护，稍后再来试试看。');
+        });
+});
 
 document.addEventListener('DOMContentLoaded', () => {
     fetchDataFromFile('im_topic_data.txt')
