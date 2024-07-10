@@ -64,16 +64,17 @@ body, html {
 .imavatarprovider {
     display: flex;
     flex-direction: column;
-    width: 75px;
+    width: 80px;
     text-align: center;
     align-items: center;
-    justify-content: end;
+    justify-content: space-between;
 }
 
 .imavatarname {
-    font-size: 9.5px;
-    height: 20px;
-    width: 75px;
+    font-size: 9px;
+    height: fit-content;
+    word-wrap: break-word;
+    width: 50px;
     margin: 0;
 }
 
@@ -81,6 +82,7 @@ body, html {
     width: 45px;
     height: 45px;
     border-radius: 50%;
+    margin-top: 3px;
 }
 
 
