@@ -5,7 +5,7 @@ body, html {
     padding: 0;
     height: 100%;
     overflow: hidden;
-    font-family: 'EL', 'HMSC', Courier, monospace;
+    font-family: 'EL', 'HMSC', system-ui, -apple-system, 'Segoe UI';
     font-size: 16px;
 }
 
@@ -13,6 +13,7 @@ body, html {
 
 #iMtopicprovider {
     position: fixed;
+    overflow-y: auto;
     left: 20px;
     bottom: 20px;
     width: 935px;
