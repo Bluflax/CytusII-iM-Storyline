@@ -51,21 +51,6 @@ function parseAndDisplayData(rawData) {
             observer.observe(imtopic);
         });
 
-        let scrollTimeout;
-        const scrollContainer = document.getElementById('iMtopicprovider');
-        scrollContainer.addEventListener('scroll', () => {
-            clearTimeout(scrollTimeout);
-            scrollTimeout = setTimeout(() => {
-                const scrollTop = scrollContainer.scrollTop;
-                const rowHeight = scrollContainer.querySelector('.imtopic').offsetHeight;
-                const targetScrollTop = Math.round(scrollTop / rowHeight) * rowHeight;
-                scrollContainer.scrollTo({
-                    top: targetScrollTop,
-                    behavior: 'smooth'
-                });
-            }, 500); // Adjust timeout as needed
-        });
-
     } catch (error) {
         console.error('Error parsing data:', error);
         console.error('Raw data:', rawData);
