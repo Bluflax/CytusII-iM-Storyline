@@ -17,10 +17,19 @@ function parseAndDisplayData(rawData) {
         const data = JSON.parse(fixedData);
         const container = document.getElementById('iMtopiclist');
 
-        data.forEach((imtopic, index) => {
-            const imtopicdiv = document.createElement('div');
-            imtopicdiv.className = 'imtopic';
-            imtopicdiv.innerHTML = `
+        // Clear existing content
+        container.innerHTML = '';
+
+        // Create rows and add imtopic elements
+        for (let i = 0; i < data.length; i += 2) {
+            const row = document.createElement('div');
+            row.className = 'imtopic-row';
+
+            for (let j = i; j < Math.min(i + 2, data.length); j++) {
+                const imtopic = data[j];
+                const imtopicdiv = document.createElement('div');
+                imtopicdiv.className = 'imtopic';
+                imtopicdiv.innerHTML = `
                     <div class="imavatarprovider">
                         <img src="assets/default_01.png">
                         <p class="imavatarname">${imtopic.CharacterName || 'Unknown'}</p>
@@ -29,26 +38,48 @@ function parseAndDisplayData(rawData) {
                         <p class="imtopictitle">${imtopic.Titles && imtopic.Titles[5] || 'N/A'}</p>
                         <p class="imtopicdetail">${imtopic.LikeCount || 0} likes</p>
                     </div>
-            `;
-            container.appendChild(imtopicdiv);
-        });
+                `;
+                row.appendChild(imtopicdiv);
+            }
+
+            container.appendChild(row);
+        }
 
         // Set up the Intersection Observer
         const observer = new IntersectionObserver((entries) => {
             entries.forEach((entry) => {
-                if (entry.isIntersecting) {
-                    const index = Array.from(container.children).indexOf(entry.target);
-                    entry.target.style.animationDelay = `${Math.floor(index / 2) * 45}ms`;
-                    entry.target.classList.add('fade-in');
-                } else {
-                    entry.target.classList.remove('fade-in');
-                }
+                const imtopics = entry.target.querySelectorAll('.imtopic');
+                imtopics.forEach((imtopic, index) => {
+                    if (entry.isIntersecting) {
+                        setTimeout(() => {
+                            imtopic.classList.add('fade-in');
+                        }, index * 45); // 0.1s delay for each imtopic in the row
+                    } else {
+                        imtopic.classList.remove('fade-in');
+                    }
+                });
             });
-        }, { threshold: 0.01 }); // Trigger when 10% of the element is visible
+        }, { threshold: 0.2 }); // Trigger when 20% of the row is visible
 
-        // Observe all imtopic elements
-        document.querySelectorAll('.imtopic').forEach(imtopic => {
-            observer.observe(imtopic);
+        // Observe all imtopic-row elements
+        document.querySelectorAll('.imtopic-row').forEach(row => {
+            observer.observe(row);
+        });
+
+        // Add smooth scrolling to nearest row on scroll end
+        let scrollTimeout;
+        const scrollContainer = document.getElementById('iMtopicprovider');
+        scrollContainer.addEventListener('scroll', () => {
+            clearTimeout(scrollTimeout);
+            scrollTimeout = setTimeout(() => {
+                const scrollTop = scrollContainer.scrollTop;
+                const rowHeight = scrollContainer.querySelector('.imtopic-row').offsetHeight;
+                const targetScrollTop = Math.round(scrollTop / rowHeight) * rowHeight;
+                scrollContainer.scrollTo({
+                    top: targetScrollTop,
+                    behavior: 'smooth'
+                });
+            }, 150); // Adjust timeout as needed
         });
 
     } catch (error) {
