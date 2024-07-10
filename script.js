@@ -33,7 +33,7 @@ function parseAndDisplayData(rawData) {
             container.appendChild(imtopicdiv);
         });
 
-        // 设置 Intersection Observer，提前 20px 渲染
+        // Set up the Intersection Observer
         const observer = new IntersectionObserver((entries) => {
             entries.forEach((entry) => {
                 if (entry.isIntersecting) {
@@ -44,12 +44,9 @@ function parseAndDisplayData(rawData) {
                     entry.target.classList.remove('fade-in');
                 }
             });
-        }, { 
-            rootMargin: '30px',
-            threshold: 1
-        });
+        }, { threshold: 1 }); // Trigger when 10% of the element is visible
 
-        // 观察所有 imtopic 元素
+        // Observe all imtopic elements
         document.querySelectorAll('.imtopic').forEach(imtopic => {
             observer.observe(imtopic);
         });
