@@ -69,7 +69,7 @@ body, html {
     display: flex;
     flex-direction: row;
     opacity: 0;  /* Start with opacity 0 */
-    transition: opacity 0.2s ease, transform 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+    transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
     transform: translateY(-20px);
 }
 

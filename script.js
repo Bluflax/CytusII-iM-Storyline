@@ -35,7 +35,7 @@ function parseAndDisplayData(rawData) {
             // Apply fade-in animation with delay
             setTimeout(() => {
                 imtopicdiv.classList.add('fade-in');
-            }, Math.floor(index / 2) * 35);
+            }, Math.floor(index / 2) * 45);
         });
 
     } catch (error) {
