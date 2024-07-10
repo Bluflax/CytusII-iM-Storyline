@@ -61,14 +61,3 @@ window.addEventListener('load', () => {
             alert('无法获取内容。可能是页面正在维护，稍后再来试试看。');
         });
 });
-
-document.addEventListener('DOMContentLoaded', () => {
-    fetchDataFromFile('im_topic_data.txt')
-        .then(rawData => {
-            parseAndDisplayData(rawData);
-        })
-        .catch(error => {
-            console.error('Error fetching data:', error);
-            alert('无法获取内容。可能是页面正在维护，稍后再来试试看。');
-        });
-});
