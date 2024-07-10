@@ -46,7 +46,7 @@ function parseAndDisplayData(rawData) {
             });
         }, { 
             rootMargin: '20px', // 提前 20px 触发
-            threshold: 0.01 
+            threshold: 0
         });
 
         // 观察所有 imtopic 元素
