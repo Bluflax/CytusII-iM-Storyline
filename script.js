@@ -31,11 +31,23 @@ function parseAndDisplayData(rawData) {
                     </div>
             `;
             container.appendChild(imtopicdiv);
+        });
 
-            // Apply fade-in animation with delay
-            setTimeout(() => {
-                imtopicdiv.classList.add('fade-in');
-            }, Math.floor(index / 2) * 45);
+        // Set up the Intersection Observer
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        entry.target.classList.add('fade-in');
+                    }, Math.floor(index / 2) * 45); // delay for each pair
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.08 }); // Trigger when 8% of the element is visible
+
+        // Observe all imtopic elements
+        document.querySelectorAll('.imtopic').forEach(imtopic => {
+            observer.observe(imtopic);
         });
 
     } catch (error) {
