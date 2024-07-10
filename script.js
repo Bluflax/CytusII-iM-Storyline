@@ -34,16 +34,17 @@ function parseAndDisplayData(rawData) {
         });
 
         // Set up the Intersection Observer
-        const observer = new IntersectionObserver((entries, observer) => {
-            entries.forEach((entry, index) => {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
                 if (entry.isIntersecting) {
-                    setTimeout(() => {
-                        entry.target.classList.add('fade-in');
-                    }, Math.floor(index / 2) * 45); // delay for each pair
-                    observer.unobserve(entry.target);
+                    const index = Array.from(container.children).indexOf(entry.target);
+                    entry.target.style.animationDelay = `${Math.floor(index / 2) * 45}ms`;
+                    entry.target.classList.add('fade-in');
+                } else {
+                    entry.target.classList.remove('fade-in');
                 }
             });
-        }, { threshold: 0.08 }); // Trigger when 8% of the element is visible
+        }, { threshold: 0.08 }); // Trigger when 10% of the element is visible
 
         // Observe all imtopic elements
         document.querySelectorAll('.imtopic').forEach(imtopic => {
