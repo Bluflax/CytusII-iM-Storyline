@@ -45,7 +45,7 @@ function parseAndDisplayData(rawData) {
                 }
             });
         }, { 
-            rootMargin: '70px',
+            rootMargin: '30px',
             threshold: 1
         });
 
