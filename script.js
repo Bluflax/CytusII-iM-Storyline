@@ -33,8 +33,8 @@ function parseAndDisplayData(rawData) {
             container.appendChild(imtopicdiv);
         });
 
-        // 设置 Intersection Observer 用于淡入效果
-        const fadeObserver = new IntersectionObserver((entries) => {
+        // Set up the Intersection Observer
+        const observer = new IntersectionObserver((entries) => {
             entries.forEach((entry) => {
                 if (entry.isIntersecting) {
                     const index = Array.from(container.children).indexOf(entry.target);
@@ -44,28 +44,11 @@ function parseAndDisplayData(rawData) {
                     entry.target.classList.remove('fade-in');
                 }
             });
-        }, { threshold: 0.01 });
+        }, { threshold: 0.01 }); // Trigger when 10% of the element is visible
 
-        // 观察所有 imtopic 元素的淡入效果
+        // Observe all imtopic elements
         document.querySelectorAll('.imtopic').forEach(imtopic => {
-            fadeObserver.observe(imtopic);
-        });
-
-        // 新增：设置 Intersection Observer 用于模糊效果
-        const optionProvider = document.querySelector('.optionprovider');
-        const blurObserver = new IntersectionObserver((entries) => {
-            entries.forEach((entry) => {
-                if (entry.intersectionRatio > 0) {
-                    entry.target.classList.remove('blurred');
-                } else {
-                    entry.target.classList.add('blurred');
-                }
-            });
-        }, { root: null, rootMargin: '0px', threshold: 0 });
-
-        // 观察所有 imtopic 元素的模糊效果
-        document.querySelectorAll('.imtopic').forEach(imtopic => {
-            blurObserver.observe(imtopic);
+            observer.observe(imtopic);
         });
 
     } catch (error) {
