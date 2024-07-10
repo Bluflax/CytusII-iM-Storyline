@@ -21,7 +21,8 @@ body, html {
 }
 
 .filler {
-    height: 500px;
+    height: 30%;
+    min-height: 100px;
 }
 
 #iMtopiclist {
