@@ -33,23 +33,6 @@ function parseAndDisplayData(rawData) {
             container.appendChild(imtopicdiv);
         });
 
-        // Set up the Intersection Observer
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach((entry) => {
-                if (entry.isIntersecting) {
-                    const index = Array.from(container.children).indexOf(entry.target);
-                    entry.target.style.animationDelay = `${Math.floor(index / 2) * 45}ms`;
-                    entry.target.classList.add('fade-in');
-                } else {
-                    entry.target.classList.remove('fade-in');
-                }
-            });
-        }, { threshold: 1 }); // Trigger when 10% of the element is visible
-
-        // Observe all imtopic elements
-        document.querySelectorAll('.imtopic').forEach(imtopic => {
-            observer.observe(imtopic);
-        });
 
     } catch (error) {
         console.error('Error parsing data:', error);
