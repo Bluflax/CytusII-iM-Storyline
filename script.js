@@ -56,9 +56,9 @@ function parseAndDisplayData(rawData) {
         const blurObserver = new IntersectionObserver((entries) => {
             entries.forEach((entry) => {
                 if (entry.intersectionRatio > 0) {
-                    entry.target.classList.add('blurred');
-                } else {
                     entry.target.classList.remove('blurred');
+                } else {
+                    entry.target.classList.add('blurred');
                 }
             });
         }, { root: null, rootMargin: '0px', threshold: 0 });
