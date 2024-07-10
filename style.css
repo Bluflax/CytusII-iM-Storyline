@@ -10,6 +10,18 @@ body, html {
     user-select: none;
 }
 
+.blurred {
+    backdrop-filter: blur(30px);
+}
+
+.optionprovider {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    height: 30%;
+    width: 100%;
+}
+
 #iMtopicprovider {
     position: fixed;
     overflow-y: auto;
