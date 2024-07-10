@@ -31,16 +31,11 @@ function parseAndDisplayData(rawData) {
                     </div>
             `;
             container.appendChild(imtopicdiv);
-        });
 
-        // Start animation after all resources are loaded
-        window.addEventListener('load', () => {
-            const imtopics = document.querySelectorAll('.imtopic');
-            imtopics.forEach((imtopic, index) => {
-                setTimeout(() => {
-                    imtopic.classList.add('fade-in');
-                }, Math.floor(index / 2) * 100); // 0.1s delay for each pair
-            });
+            // Apply fade-in animation with delay
+            setTimeout(() => {
+                imtopicdiv.classList.add('fade-in');
+            }, Math.floor(index / 2) * 60);
         });
 
     } catch (error) {
@@ -50,8 +45,7 @@ function parseAndDisplayData(rawData) {
     }
 }
 
-// Use window load event instead of DOMContentLoaded
-window.addEventListener('load', () => {
+document.addEventListener('DOMContentLoaded', () => {
     fetchDataFromFile('im_topic_data.txt')
         .then(rawData => {
             parseAndDisplayData(rawData);
