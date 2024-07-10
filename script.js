@@ -79,7 +79,7 @@ function parseAndDisplayData(rawData) {
                     top: targetScrollTop,
                     behavior: 'smooth'
                 });
-            }, 150); // Adjust timeout as needed
+            }, 500); // Adjust timeout as needed
         });
 
     } catch (error) {
