@@ -44,7 +44,7 @@ function parseAndDisplayData(rawData) {
                     entry.target.classList.remove('fade-in');
                 }
             });
-        }, { threshold: 0.9 }); // Trigger when 10% of the element is visible
+        }, { threshold: 0.01 }); // Trigger when 10% of the element is visible
 
         // Observe all imtopic elements
         document.querySelectorAll('.imtopic').forEach(imtopic => {
