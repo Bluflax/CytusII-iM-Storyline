@@ -18,25 +18,38 @@ body, html {
     width: 935px;
     height: 500px;
     border: 1px solid #333333;
-    scroll-snap-type: y mandatory;
-    scroll-behavior: smooth;
 }
 
 #iMtopiclist {
+    flex-grow: 1;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     align-content: flex-start;
-    padding: 10px;
+    margin: 10px;
 }
 
-.imtopic-row {
+.imavatarprovider {
     display: flex;
+    width: 75px;
+    text-align: center;
+    flex-direction: column;
     justify-content: space-between;
-    width: 100%;
-    scroll-snap-align: start;
-    height: 90px; /* Adjust based on your imtopic height + margin */
+    align-items: center;
 }
+
+.imavatarname {
+    font-size: 8px;
+    height: fit-content;
+    transform: translateY(-2px);
+}
+
+.imavatarprovider img {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+}
+
 
 .imtopic {
     width: 450px;
@@ -55,11 +68,48 @@ body, html {
     opacity: 1;
 }
 
-/* Rest of the styles remain the same */
+.imtopicmain {
+    height: 75px;
+    flex-grow: 1;
+    background: linear-gradient(165deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.2) 100%);
+    padding: 10px;
+    border-top: 1.5px solid #83b0b8;
+    transition: background-color 0.1s ease;
+}
+
+.imtopicmain:hover {
+    background-color: rgba(255, 255, 255, 0.1)
+}
+
+.imtopictitle {
+    font-size: 17px;
+    width: fit-content;
+    height: fit-content;
+    margin-top: 9px;
+    margin-bottom: 3.5px;
+    padding: 0;
+}
+
+.imtopicdetail {
+    font-size: 12px;
+    width: fit-content;
+    height: fit-content;
+    margin: 0;
+    padding: 0;
+    opacity: 0.5;
+}
+
+
+.imtopic-image {
+    width: 100%;
+    height: 80px;
+    background-size: cover;
+    background-position: center;
+}
 
 /* Scrollbar styling */
 #iMtopicprovider::-webkit-scrollbar {
-    width: 6px;
+    width: 0px;
 }
 
 #iMtopicprovider::-webkit-scrollbar-track {
@@ -67,12 +117,12 @@ body, html {
 }
 
 #iMtopicprovider::-webkit-scrollbar-thumb {
-    background: #ffffff33;
+    background: #00000000;
     border-radius: 3px;
 }
 
 #iMtopicprovider::-webkit-scrollbar-thumb:hover {
-    background: #ffffff66;
+    background: #00000000;
 }
 
 @media (max-width: 1024px) {
