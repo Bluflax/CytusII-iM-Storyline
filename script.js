@@ -33,20 +33,22 @@ function parseAndDisplayData(rawData) {
             container.appendChild(imtopicdiv);
         });
 
-        // Set up the Intersection Observer
+        // 设置 Intersection Observer，提前 20px 渲染
         const observer = new IntersectionObserver((entries) => {
             entries.forEach((entry) => {
                 if (entry.isIntersecting) {
                     const index = Array.from(container.children).indexOf(entry.target);
                     entry.target.style.animationDelay = `${Math.floor(index / 2) * 45}ms`;
                     entry.target.classList.add('fade-in');
-                } else {
-                    entry.target.classList.remove('fade-in');
+                    observer.unobserve(entry.target); // 停止观察已经渲染的元素
                 }
             });
-        }, { threshold: 0.01 }); // Trigger when 10% of the element is visible
+        }, { 
+            rootMargin: '20px', // 提前 20px 触发
+            threshold: 0.01 
+        });
 
-        // Observe all imtopic elements
+        // 观察所有 imtopic 元素
         document.querySelectorAll('.imtopic').forEach(imtopic => {
             observer.observe(imtopic);
         });
