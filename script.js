@@ -33,6 +33,7 @@ function parseAndDisplayData(rawData) {
             container.appendChild(imtopicdiv);
         });
 
+        // 设置 Intersection Observer 用于淡入效果
         const fadeObserver = new IntersectionObserver((entries) => {
             entries.forEach((entry) => {
                 if (entry.isIntersecting) {
@@ -44,12 +45,12 @@ function parseAndDisplayData(rawData) {
                 }
             });
         }, { threshold: 0.01 });
-    
+
         // 观察所有 imtopic 元素的淡入效果
         document.querySelectorAll('.imtopic').forEach(imtopic => {
             fadeObserver.observe(imtopic);
         });
-    
+
         // 新增：设置 Intersection Observer 用于模糊效果
         const optionProvider = document.querySelector('.optionprovider');
         const blurObserver = new IntersectionObserver((entries) => {
@@ -61,7 +62,7 @@ function parseAndDisplayData(rawData) {
                 }
             });
         }, { root: null, rootMargin: '0px', threshold: 0 });
-    
+
         // 观察所有 imtopic 元素的模糊效果
         document.querySelectorAll('.imtopic').forEach(imtopic => {
             blurObserver.observe(imtopic);
