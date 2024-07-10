@@ -95,20 +95,20 @@ body, html {
 }
 
 /* Scrollbar styling */
-#iMtopiclist::-webkit-scrollbar {
+#iMtopicprovider::-webkit-scrollbar {
     width: 0px;
 }
 
-#iMtopiclist::-webkit-scrollbar-track {
+#iMtopicprovider::-webkit-scrollbar-track {
     background: #00000000;
 }
 
-#iMtopiclist::-webkit-scrollbar-thumb {
+#iMtopicprovider::-webkit-scrollbar-thumb {
     background: #00000000;
     border-radius: 3px;
 }
 
-#iMtopiclist::-webkit-scrollbar-thumb:hover {
+#iMtopicprovider::-webkit-scrollbar-thumb:hover {
     background: #00000000;
 }
 
