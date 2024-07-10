@@ -50,16 +50,6 @@ body, html {
     border-radius: 50%;
 }
 
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
 
 .imtopic {
     width: 450px;
@@ -68,12 +58,14 @@ body, html {
     overflow: hidden;
     display: flex;
     flex-direction: row;
-    opacity: 0;
-    transform: translateY(20px);
+    opacity: 0;  /* Start with opacity 0 */
+    transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+    transform: translateY(-20px);
 }
 
 .imtopic.fade-in {
-    animation: fadeIn 0.2s ease-out forwards;
+    transform: translateY(0px);
+    opacity: 1;
 }
 
 .imtopicmain {
