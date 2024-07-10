@@ -105,6 +105,9 @@ body, html {
     padding-left: 15px;
     border-top: 1.5px solid #83b0b8;
     transition: background-color 0.1s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .imtopicmain:hover {
@@ -115,15 +118,15 @@ body, html {
     font-size: 17px;
     max-width: 350px;
     height: fit-content;
-    margin-top: 20px;
-    margin-bottom: 3.5px;
+    margin: 0;
     text-wrap: wrap;
     word-wrap: break-word;
     padding: 0;
+    
 }
 
 .imtopicdetail {
-    font-size: 12px;
+    font-size: 11px;
     width: fit-content;
     height: fit-content;
     margin: 0;
