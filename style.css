@@ -7,9 +7,8 @@ body, html {
     overflow: hidden;
     font-family: 'EL', 'HMSC', system-ui, -apple-system, 'Segoe UI';
     font-size: 16px;
+    user-select: none;
 }
-
-
 
 #iMtopicprovider {
     position: fixed;
@@ -51,6 +50,17 @@ body, html {
     border-radius: 50%;
 }
 
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 .imtopic {
     width: 450px;
     height: 70px;
@@ -58,14 +68,24 @@ body, html {
     overflow: hidden;
     display: flex;
     flex-direction: row;
+    opacity: 0;  /* Start with opacity 0 */
+}
+
+.imtopic.fade-in {
+    animation: fadeIn 0.2s ease-out forwards;
 }
 
 .imtopicmain {
     height: 75px;
     flex-grow: 1;
-    background: linear-gradient(160deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.2) 100%);
+    background: linear-gradient(165deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.2) 100%);
     padding: 10px;
     border-top: 1.5px solid #83b0b8;
+    transition: background-color 0.1s ease;
+}
+
+.imtopicmain:hover {
+    background-color: rgba(255, 255, 255, 0.1)
 }
 
 .imtopictitle {
@@ -73,7 +93,7 @@ body, html {
     width: fit-content;
     height: fit-content;
     margin-top: 9px;
-    margin-bottom: 3px;
+    margin-bottom: 3.5px;
     padding: 0;
 }
 

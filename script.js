@@ -17,7 +17,7 @@ function parseAndDisplayData(rawData) {
         const data = JSON.parse(fixedData);
         const container = document.getElementById('iMtopiclist');
 
-        data.forEach(imtopic => {
+        data.forEach((imtopic, index) => {
             const imtopicdiv = document.createElement('div');
             imtopicdiv.className = 'imtopic';
             imtopicdiv.innerHTML = `
@@ -26,13 +26,16 @@ function parseAndDisplayData(rawData) {
                         <p class="imavatarname">${imtopic.CharacterName || 'Unknown'}</p>
                     </div>
                     <div class="imtopicmain">
-                        <!--p><strong>ID:</strong> ${imtopic.Id || 'id'}</p-->
                         <p class="imtopictitle">${imtopic.Titles && imtopic.Titles[5] || 'N/A'}</p>
                         <p class="imtopicdetail">${imtopic.LikeCount || 0} likes</p>
-                        <!--p class="imtopicdetail">${imtopic.Replies ? imtopic.Replies.length : 0} comments</p-->
                     </div>
             `;
             container.appendChild(imtopicdiv);
+
+            // Apply fade-in animation with delay
+            setTimeout(() => {
+                imtopicdiv.classList.add('fade-in');
+            }, Math.floor(index / 2) * 100); // 0.1s delay for each pair
         });
 
     } catch (error) {
