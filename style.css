@@ -16,8 +16,12 @@ body, html {
     left: 20px;
     bottom: 20px;
     width: 935px;
-    height: 500px;
+    height: 100%;
     border: 1px solid #333333;
+}
+
+.filler {
+    height: 500px;
 }
 
 #iMtopiclist {
