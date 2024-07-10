@@ -11,7 +11,7 @@ body, html {
 }
 
 .blurred {
-    backdrop-filter: blur(30px);
+    filter: blur(30px);
 }
 
 .optionprovider {
