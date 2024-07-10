@@ -23,7 +23,6 @@ body, html {
 
 #iMtopiclist {
     flex-grow: 1;
-    overflow-y: auto;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
