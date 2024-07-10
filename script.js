@@ -45,7 +45,7 @@ function parseAndDisplayData(rawData) {
                 }
             });
         }, { 
-            rootMargin: '20px', // 提前 20px 触发
+            rootMargin: '40px', // 提前 20px 触发
             threshold: 0
         });
 
